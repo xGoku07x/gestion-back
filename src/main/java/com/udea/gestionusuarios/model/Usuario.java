@@ -18,17 +18,15 @@ import lombok.Setter;
 public class Usuario {
     
     @Id
-    @Column(name = "id")
-    private long id;
+    @Column(name = "id_usuario")
+    private long idUsuario;
 
-    @Column(name = "grupo")
     @ManyToOne
-    @JoinColumn(name = "grupo_id")
+    @JoinColumn(name = "id_grupo")
     private Grupo grupo;
 
-    @Column(name = "tipo_usuario")
     @ManyToOne
-    @JoinColumn(name = "tipo_usuario_id")
+    @JoinColumn(name = "id_tipo_usuario")
     private TipoUsuario tipoUsuario;
 
     @Column(name = "nombre", nullable = false)
@@ -43,16 +41,16 @@ public class Usuario {
     @Column(name="email", nullable = false)
     private String email;
     
-    @Column(name="password", nullable = false)
+    @Column(name="contrasena", nullable = false)
     private String password;
 
-    @Column(name="nroDocumento", nullable = false)
-    private String nroDocumento;
+    @Column(name="cedula", nullable = false)
+    private String cedula;
 
     @Column(name="rol", nullable = false)
     private String rol;
 
-    @Column(name="nroServicios", nullable = false)
+    @Column(name="nro_servicios", nullable = false)
     private String nroServicios;
 
 }
