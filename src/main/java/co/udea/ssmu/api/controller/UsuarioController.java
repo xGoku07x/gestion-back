@@ -41,7 +41,7 @@ public class UsuarioController {
     public ResponseEntity<String> crearUsuario(@RequestBody UsuarioDTO usuarioDTO){
         try{
             this.usuarioFacade.crearUsuario(usuarioDTO);
-            return ResponseEntity.ok("El usuario ha sido cread correctamente.");
+            return ResponseEntity.ok("El usuario ha sido creado correctamente.");
         } catch(RuntimeException e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }

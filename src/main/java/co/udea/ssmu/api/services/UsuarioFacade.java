@@ -17,8 +17,8 @@ public class UsuarioFacade {
         this.usuarioService = usuarioService;
     }
 
-    public UsuarioDTO crearUsuario(UsuarioDTO usuarioDTO){
-        return UsuarioMapper.convertirDTO(usuarioService.crearUsuario(usuarioDTO));
+    public void crearUsuario(UsuarioDTO usuarioDTO){
+        UsuarioMapper.convertirDTO(usuarioService.crearUsuario(usuarioDTO));
     }
 
     public UsuarioDTO actualizarUsuario(UsuarioDTO usuarioDTO){
