@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
+import co.udea.ssmu.api.model.jpa.model.Usuario;
 import co.udea.ssmu.api.services.UsuarioFacade;
 
 @RestController
@@ -26,7 +27,7 @@ public class UsuarioController {
 
     
    @GetMapping("/{nro_documento}")
-    public ResponseEntity<?> obtenerInformacionUsuario(@PathVariable String nroDocumento){
+    public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable String nroDocumento){
         try{
            UsuarioDTO usuario = usuarioFacade.obtenerInformacionUsuario(nroDocumento);
            return ResponseEntity.ok(usuario);

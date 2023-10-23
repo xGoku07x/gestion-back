@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TipoUsuarioDTO {
-    private long id_tipo_usuario;
+    private long idTipoUsuario;
     private String nombre;
     private String descripcion;
     private float descuento;

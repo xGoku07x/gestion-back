@@ -11,7 +11,7 @@ public class LugarFavoritoDTO {
 
     private long idLugarFavorito;
     private Usuario usuario;
-    private long ubicacion; //TODO: Cambiar por objeto Ubicacion
+    private long ubicacion;
     private String nombre;
 
 }
