@@ -1,5 +1,6 @@
 package co.udea.ssmu.api.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +16,16 @@ import co.udea.ssmu.api.model.jpa.model.Usuario;
 import co.udea.ssmu.api.services.UsuarioFacade;
 
 @RestController
-
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
     private UsuarioFacade usuarioFacade;
 
+    @Autowired
     public UsuarioController(UsuarioFacade usuarioFacade) {
         this.usuarioFacade = usuarioFacade;
     }
 
-    
    @GetMapping("/{nro_documento}")
     public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable String nroDocumento){
         try{
