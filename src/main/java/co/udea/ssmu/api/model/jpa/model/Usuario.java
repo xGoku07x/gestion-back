@@ -1,10 +1,13 @@
 package co.udea.ssmu.api.model.jpa.model;
 
+import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
@@ -27,6 +30,8 @@ public class Usuario {
     
     @Id
     @Column(name = "id_usuario")
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.SEQUENCE)
+    @SequenceGenerator(name="usuario_seq", sequenceName = "seq_usuario", allocationSize=1)
     private long idUsuario;
 
     @ManyToOne

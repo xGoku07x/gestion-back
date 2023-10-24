@@ -24,7 +24,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{nro_documento}")
-    public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable String nroDocumento) {
+    public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable(name="nro_documento") String nroDocumento) {
         try {
             UsuarioDTO usuario = usuarioFacade.obtenerInformacionUsuario(nroDocumento);
             return ResponseEntity.ok(usuario);
