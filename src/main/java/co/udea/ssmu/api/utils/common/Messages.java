@@ -1,6 +1,5 @@
 package co.udea.ssmu.api.utils.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -18,7 +17,6 @@ public class Messages {
     private MessageSource messageSource;
     private MessageSourceAccessor accessor;
 
-    @Autowired
     public Messages(MessageSource messageSource){
         this.messageSource = messageSource;
     }

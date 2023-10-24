@@ -1,6 +1,5 @@
 package co.udea.ssmu.api.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
@@ -12,7 +11,6 @@ import jakarta.transaction.Transactional;
 public class UsuarioFacade {
     private UsuarioService usuarioService;
 
-    @Autowired
     public UsuarioFacade(UsuarioService usuarioService){
         this.usuarioService = usuarioService;
     }
