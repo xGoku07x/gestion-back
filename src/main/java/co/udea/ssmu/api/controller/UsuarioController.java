@@ -25,38 +25,30 @@ public class UsuarioController {
 
     @GetMapping("/{nro_documento}")
     public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable String nroDocumento) {
-        return executeAndReturnResponse(() -> usuarioFacade.obtenerInformacionUsuario(nroDocumento));
+        try {
+            UsuarioDTO usuario = usuarioFacade.obtenerInformacionUsuario(nroDocumento);
+            return ResponseEntity.ok(usuario);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
+
     }
 
     @PostMapping("/")
     public ResponseEntity<String> crearUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        return executeAndReturnMessage(() -> {
-            usuarioFacade.crearUsuario(usuarioDTO);
-            return "El usuario ha sido creado correctamente.";
-        });
-    }
-
-    @PatchMapping("/")
-    public ResponseEntity<String> actualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        return executeAndReturnMessage(() -> {
-            usuarioFacade.actualizarUsuario(usuarioDTO);
-            return "El usuario ha sido actualizado correctamente.";
-        });
-    }
-
-    private ResponseEntity<Object> executeAndReturnResponse(Supplier<UsuarioDTO> action) {
         try {
-            UsuarioDTO usuario = action.get();
-            return ResponseEntity.ok(usuario);
+            this.usuarioFacade.crearUsuario(usuarioDTO);
+            return ResponseEntity.ok("El usuario ha sido creado correctamente.");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    private ResponseEntity<String> executeAndReturnMessage(Supplier<String> action) {
+    @PatchMapping("/")
+    public ResponseEntity<String> actualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
         try {
-            String message = action.get();
-            return ResponseEntity.ok(message);
+            this.usuarioFacade.actualizarUsuario(usuarioDTO);
+            return ResponseEntity.ok("El usuario ha sido actualizado correctamente.");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
