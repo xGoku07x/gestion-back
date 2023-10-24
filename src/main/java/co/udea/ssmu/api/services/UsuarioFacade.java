@@ -19,8 +19,8 @@ public class UsuarioFacade {
         UsuarioMapper.convertirDTO(usuarioService.crearUsuario(usuarioDTO));
     }
 
-    public UsuarioDTO actualizarUsuario(UsuarioDTO usuarioDTO){
-        return UsuarioMapper.convertirDTO(usuarioService.actualizarUsuario(usuarioDTO));
+    public void actualizarUsuario(UsuarioDTO usuarioDTO){
+        UsuarioMapper.convertirDTO(usuarioService.actualizarUsuario(usuarioDTO));
     }
 
     public UsuarioDTO obtenerInformacionUsuario(String nroDocumento){

@@ -11,19 +11,34 @@ public class UsuarioMapper {
 
     public static Usuario convertirEntidad(UsuarioDTO usuarioDTO) {
         return Usuario.builder()
+                .idUsuario(usuarioDTO.getIdUsuario())
                 .nombre(usuarioDTO.getNombre())
                 .apellido(usuarioDTO.getApellido())
                 .celular(usuarioDTO.getCelular())
                 .email(usuarioDTO.getEmail())
-                .password(encodePassword(usuarioDTO.getPassword()))
                 .nroDocumento(usuarioDTO.getNroDocumento())
                 .rol(usuarioDTO.getRol())
                 .nroServicios(usuarioDTO.getNroServicios())
                 .build();
     }
 
+    public static Usuario crearUsuarioEntidad(UsuarioDTO usuarioDTO) {
+        return Usuario.builder()
+                .nombre(usuarioDTO.getNombre())
+                .apellido(usuarioDTO.getApellido())
+                .celular(usuarioDTO.getCelular())
+                .email(usuarioDTO.getEmail())
+                .password(encodePassword(usuarioDTO.getPassword()))
+                .nroDocumento(usuarioDTO.getNroDocumento())
+                .rol("Usuario")
+                .nroServicios("0")
+                .build();
+    }
+
     public static UsuarioDTO convertirDTO(Usuario usuario) {
         return UsuarioDTO.builder()
+                .idUsuario(usuario.getIdUsuario())
+                .tipoUsuario(usuario.getTipoUsuario().getIdTipoUsuario())
                 .nombre(usuario.getNombre())
                 .apellido(usuario.getApellido())
                 .celular(usuario.getCelular())

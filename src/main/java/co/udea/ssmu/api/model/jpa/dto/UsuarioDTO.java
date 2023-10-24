@@ -11,11 +11,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioDTO {
-    private long id;
+    
+    private long idUsuario;
     private String nombre;
     private String apellido;
-    private Grupo grupo;
-    private TipoUsuario tipoUsuario; 
+    private long grupo;
+    private long tipoUsuario; 
     private String celular;
     private String email;
     private String password;

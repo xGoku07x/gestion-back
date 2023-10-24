@@ -36,7 +36,7 @@ public class UsuarioService {
     }
 
     public Usuario crearUsuario(UsuarioDTO usuarioDTO) {
-        Usuario usuario = UsuarioMapper.convertirEntidad(usuarioDTO);
+        Usuario usuario = UsuarioMapper.crearUsuarioEntidad(usuarioDTO);
         if (this.existeUsuario(usuario)) {
             throw new DataDuplicatedException(USUARIO_YA_EXISTE);
         }
@@ -72,6 +72,7 @@ public class UsuarioService {
 
     private void asignarTipoUsuario(Usuario usuario, long idTipoUsuario) {
         TipoUsuario tipoNuevoUsuario = tipoUsuarioRepository.findById(idTipoUsuario).orElse(null);
+        
         usuario.setTipoUsuario(tipoNuevoUsuario);
     }
 
