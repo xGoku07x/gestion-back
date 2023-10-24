@@ -25,7 +25,7 @@ public class LugarFavorito {
     private Usuario usuario;
 
     @Column(name = "id_ubicacion")
-    private long ubicacion; //TODO: Cambiar por objeto Ubicacion
+    private long ubicacion; //Cambiar por objeto Ubicacion
     
     @Column(name = "nombre")    
     private String nombre;
