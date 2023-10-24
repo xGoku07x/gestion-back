@@ -25,30 +25,38 @@ public class UsuarioController {
 
     @GetMapping("/{nro_documento}")
     public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable String nroDocumento) {
-        try {
-            UsuarioDTO usuario = usuarioFacade.obtenerInformacionUsuario(nroDocumento);
-            return ResponseEntity.ok(usuario);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-
+        return executeAndReturnResponse(() -> usuarioFacade.obtenerInformacionUsuario(nroDocumento));
     }
 
     @PostMapping("/")
     public ResponseEntity<String> crearUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return executeAndReturnMessage(() -> {
+            usuarioFacade.crearUsuario(usuarioDTO);
+            return "El usuario ha sido creado correctamente.";
+        });
+    }
+
+    @PatchMapping("/")
+    public ResponseEntity<String> actualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+        return executeAndReturnMessage(() -> {
+            usuarioFacade.actualizarUsuario(usuarioDTO);
+            return "El usuario ha sido actualizado correctamente.";
+        });
+    }
+
+    private ResponseEntity<Object> executeAndReturnResponse(Supplier<UsuarioDTO> action) {
         try {
-            this.usuarioFacade.crearUsuario(usuarioDTO);
-            return ResponseEntity.ok("El usuario ha sido creado correctamente.");
+            UsuarioDTO usuario = action.get();
+            return ResponseEntity.ok(usuario);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
 
-    @PatchMapping("/")
-    public ResponseEntity<String> actualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
+    private ResponseEntity<String> executeAndReturnMessage(Supplier<String> action) {
         try {
-            this.usuarioFacade.actualizarUsuario(usuarioDTO);
-            return ResponseEntity.ok("El usuario ha sido actualizado correctamente.");
+            String message = action.get();
+            return ResponseEntity.ok(message);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
