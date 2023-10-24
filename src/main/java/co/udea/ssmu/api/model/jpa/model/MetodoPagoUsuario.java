@@ -30,6 +30,8 @@ public class MetodoPagoUsuario {
     @ManyToOne
     @JoinColumn(name = "id_metodo_pago")
     private MetodoPago idMetodoPago;
+
+    @Column(name = "nombre_banco")
     private String nombreBanco;
 
     @Column(name = "nombre_tarjeta")

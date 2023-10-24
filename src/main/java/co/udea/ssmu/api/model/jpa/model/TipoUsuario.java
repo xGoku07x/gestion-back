@@ -23,8 +23,5 @@ public class TipoUsuario {
 
     @Column(name = "descripcion")
     private String descripcion;
-
-    @Column(name = "descuento")
-    private float descuento;
     
 }
