@@ -1,9 +1,6 @@
 package co.udea.ssmu.api.model.jpa.dto;
 
-import co.udea.ssmu.api.model.jpa.model.Grupo;
-import co.udea.ssmu.api.model.jpa.model.TipoUsuario;
 import lombok.*;
-
 
 @Getter
 @Setter

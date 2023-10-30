@@ -1,6 +1,5 @@
 package co.udea.ssmu.api.model.jpa.model;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -53,6 +53,7 @@ public class Usuario {
     private String celular;
 
     @Column(name="email", nullable = false)
+    @Email
     private String email;
     
     @Column(name="password", nullable = false)

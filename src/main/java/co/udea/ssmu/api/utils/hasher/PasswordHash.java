@@ -9,7 +9,4 @@ public class PasswordHash {
         return passwordEncoder.encode(plainPassword);
     }
 
-    public boolean esValidaPassword(String hashedPassword, String plainPassword) {
-        return passwordEncoder.matches(plainPassword, hashedPassword);
-    }
 }
