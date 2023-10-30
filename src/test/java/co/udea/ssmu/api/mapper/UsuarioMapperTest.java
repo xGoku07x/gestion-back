@@ -36,6 +36,27 @@ public class UsuarioMapperTest {
         assertEquals(usuarioDTO.getNroServicios(), usuario.getNroServicios());
     }
 
+    @Test
+    public void crearUsuarioEntidadExitosoTest() {
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setNombre("John");
+        usuarioDTO.setApellido("Doe");
+        usuarioDTO.setCelular("123456789");
+        usuarioDTO.setEmail("john@example.com");
+        usuarioDTO.setPassword("1234567");
+        usuarioDTO.setNroDocumento("123ABC");
+
+        Usuario usuario = UsuarioMapper.crearUsuarioEntidad(usuarioDTO);
+
+        assertEquals(usuarioDTO.getNombre(), usuario.getNombre());
+        assertEquals(usuarioDTO.getApellido(), usuario.getApellido());
+        assertEquals(usuarioDTO.getCelular(), usuario.getCelular());
+        assertEquals(usuarioDTO.getEmail(), usuario.getEmail());
+        assertEquals(usuarioDTO.getNroDocumento(), usuario.getNroDocumento());
+        assertEquals("Usuario", usuario.getRol());
+        assertEquals("0", usuario.getNroServicios());
+    }
+
 
     @Test
     public void convertirDTOExitosoTest() {

@@ -1,7 +1,6 @@
 package co.udea.ssmu.api.utils.handler;
 
 import co.udea.ssmu.api.utils.common.StandardResponse;
-import co.udea.ssmu.api.utils.exception.BusinessException;
 import co.udea.ssmu.api.utils.exception.DataDuplicatedException;
 import co.udea.ssmu.api.utils.exception.DataNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -13,10 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(BusinessException.class)
-    protected ResponseEntity<?> handleBusinessException(BusinessException ex) {
-        return new ResponseEntity<>(new StandardResponse<>(StandardResponse.StatusStandardResponse.ERROR, ex.getMessage()), HttpStatus.CONFLICT);
-    }
+
 
     @ExceptionHandler(DataNotFoundException.class)
     protected ResponseEntity<?> handleDataNotFoundException(DataNotFoundException ex) {
