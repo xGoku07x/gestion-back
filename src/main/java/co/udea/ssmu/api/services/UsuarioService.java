@@ -69,6 +69,7 @@ public class UsuarioService {
             usuario.setPassword(password);
         }
     }
+    
 
     private void asignarTipoUsuario(Usuario usuario, long idTipoUsuario) {
         TipoUsuario tipoNuevoUsuario = tipoUsuarioRepository.findById(idTipoUsuario).orElse(null);
