@@ -54,24 +54,21 @@ public class UsuarioService {
     }
 
 
-    private void actualizarUsuario(Usuario usuario, UsuarioDTO usuarioDTO) {
-        Map<Function<UsuarioDTO, ?>, Consumer<Object>> mapeoCampos = new HashMap<>();
-        mapeoCampos.put(UsuarioDTO::getNombre, usuario::setNombre);
-        mapeoCampos.put(UsuarioDTO::getApellido, usuario::setApellido);
-        mapeoCampos.put(UsuarioDTO::getCelular, usuario::setCelular);
-
+    private void actualizarUsuario(Usuario usuario, UsuarioDTO usuarioDTO){
+        if (usuarioDTO.getNombre() != null) {
+            usuario.setNombre(usuarioDTO.getNombre());
+        }
+        if (usuarioDTO.getApellido() != null) {
+            usuario.setApellido(usuarioDTO.getApellido());
+        }
+        if (usuarioDTO.getCelular() != null) {
+            usuario.setCelular(usuarioDTO.getCelular());
+        }
         if (usuarioDTO.getPassword() != null) {
             String password = UsuarioMapper.encodePassword(usuarioDTO.getPassword());
             usuario.setPassword(password);
         }
-
-        mapeoCampos.forEach((getter, setter) -> {
-            Object valor = getter.apply(usuarioDTO);
-            if (valor != null) {
-                setter.accept(valor);
-            }
-        });
-}
+    }
 
     private void asignarTipoUsuario(Usuario usuario, long idTipoUsuario) {
         TipoUsuario tipoNuevoUsuario = tipoUsuarioRepository.findById(idTipoUsuario).orElse(null);
