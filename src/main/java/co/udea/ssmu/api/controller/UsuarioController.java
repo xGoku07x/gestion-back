@@ -25,31 +25,25 @@ public class UsuarioController {
 
     @GetMapping("/{nro_documento}")
     public ResponseEntity<Object> obtenerInformacionUsuario(@PathVariable(name="nro_documento") String nroDocumento) {
-        try {
+        
             UsuarioDTO usuario = usuarioFacade.obtenerInformacionUsuario(nroDocumento);
             return ResponseEntity.ok(usuario);
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+        
     }
 
     @PostMapping("/")
     public ResponseEntity<String> crearUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        try {
+        
             this.usuarioFacade.crearUsuario(usuarioDTO);
             return ResponseEntity.ok("El usuario ha sido creado correctamente.");
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+        
     }
 
     @PatchMapping("/")
     public ResponseEntity<String> actualizarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        try {
+        
             this.usuarioFacade.actualizarUsuario(usuarioDTO);
             return ResponseEntity.ok("El usuario ha sido actualizado correctamente.");
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
+        
     }
 }
