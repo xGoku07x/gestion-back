@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 
 import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
-import co.udea.ssmu.api.services.UsuarioFacade;
+import co.udea.ssmu.api.services.usuario.UsuarioFacade;
 
 class UsuarioControllerTest {
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
-import co.udea.ssmu.api.services.UsuarioFacade;
+import co.udea.ssmu.api.services.usuario.UsuarioFacade;
 
 @RestController
 @RequestMapping("/usuarios")
