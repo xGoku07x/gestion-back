@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tipo_usuario")
+@Table(name = "grupo")
 public class Grupo {
 
     @Id
@@ -25,7 +25,7 @@ public class Grupo {
     private String nombre;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuario_dueno")
     private Usuario usuarioJefe;
 
     @Column(name = "descripcion")

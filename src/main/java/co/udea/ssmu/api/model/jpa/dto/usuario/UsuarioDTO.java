@@ -1,4 +1,4 @@
-package co.udea.ssmu.api.model.jpa.dto;
+package co.udea.ssmu.api.model.jpa.dto.usuario;
 
 import lombok.*;
 
@@ -9,7 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class UsuarioDTO {
     
-    private long idUsuario;
     private String nombre;
     private String apellido;
     private long grupo;
@@ -18,6 +17,5 @@ public class UsuarioDTO {
     private String email;
     private String password;
     private String nroDocumento;
-    private String rol;
     private String nroServicios;
 }

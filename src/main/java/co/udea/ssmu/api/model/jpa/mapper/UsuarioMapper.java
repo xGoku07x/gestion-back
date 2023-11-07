@@ -1,23 +1,23 @@
 package co.udea.ssmu.api.model.jpa.mapper;
 
-import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioInfoDTO;
 import co.udea.ssmu.api.model.jpa.model.Usuario;
 import co.udea.ssmu.api.utils.hasher.PasswordHash;
 
 public class UsuarioMapper {
 
+    //private final PasswordEncoder passwordEncoder;
     private UsuarioMapper() {
     }
 
     public static Usuario convertirEntidad(UsuarioDTO usuarioDTO) {
         return Usuario.builder()
-                .idUsuario(usuarioDTO.getIdUsuario())
                 .nombre(usuarioDTO.getNombre())
                 .apellido(usuarioDTO.getApellido())
                 .celular(usuarioDTO.getCelular())
                 .email(usuarioDTO.getEmail())
                 .nroDocumento(usuarioDTO.getNroDocumento())
-                .rol(usuarioDTO.getRol())
                 .nroServicios(usuarioDTO.getNroServicios())
                 .build();
     }
@@ -30,23 +30,31 @@ public class UsuarioMapper {
                 .email(usuarioDTO.getEmail())
                 .password(encodePassword(usuarioDTO.getPassword()))
                 .nroDocumento(usuarioDTO.getNroDocumento())
-                .rol("Usuario")
+                .rol("USUARIO")
                 .nroServicios("0")
                 .build();
     }
 
-    public static UsuarioDTO convertirDTO(Usuario usuario) {
-        return UsuarioDTO.builder()
-                .idUsuario(usuario.getIdUsuario())
-                .tipoUsuario(usuario.getTipoUsuario().getIdTipoUsuario())
+    public static UsuarioInfoDTO convertirDTO(Usuario usuario) {
+        UsuarioInfoDTO.UsuarioInfoDTOBuilder usuarioInfoDTOBuilder =  UsuarioInfoDTO.builder()
+                .tipoUsuario(usuario.getTipoUsuario().getNombre())
                 .nombre(usuario.getNombre())
                 .apellido(usuario.getApellido())
                 .celular(usuario.getCelular())
                 .email(usuario.getEmail())
                 .nroDocumento(usuario.getNroDocumento())
-                .rol(usuario.getRol())
-                .nroServicios(usuario.getNroServicios())
-                .build();
+                .nroServicios(usuario.getNroServicios());
+        cargarGrupo(usuario, usuarioInfoDTOBuilder);
+        return usuarioInfoDTOBuilder.build();
+
+    }
+
+    public static void cargarGrupo(Usuario usuario, UsuarioInfoDTO.UsuarioInfoDTOBuilder builder){
+        if (usuario.getGrupo() != null){
+            builder.grupo(usuario.getGrupo().getNombre()).idGrupo(usuario.getGrupo().getIdGrupo());
+        } else {
+            builder.idGrupo(-1);
+        }
     }
 
     public static String encodePassword(String password) {

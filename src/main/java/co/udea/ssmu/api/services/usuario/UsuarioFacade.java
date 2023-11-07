@@ -1,9 +1,11 @@
 package co.udea.ssmu.api.services.usuario;
 
+import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioInfoDTO;
 import org.springframework.stereotype.Service;
 
-import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioDTO;
 import co.udea.ssmu.api.model.jpa.mapper.UsuarioMapper;
+import co.udea.ssmu.api.model.jpa.model.Usuario;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -16,14 +18,18 @@ public class UsuarioFacade {
     }
 
     public void crearUsuario(UsuarioDTO usuarioDTO){
-        UsuarioMapper.convertirDTO(usuarioService.crearUsuario(usuarioDTO));
+        this.usuarioService.crearUsuario(usuarioDTO);
     }
 
     public void actualizarUsuario(UsuarioDTO usuarioDTO){
-        UsuarioMapper.convertirDTO(usuarioService.actualizarUsuario(usuarioDTO));
+        this.usuarioService.actualizarUsuario(usuarioDTO);
     }
 
-    public UsuarioDTO obtenerInformacionUsuario(String nroDocumento){
+    public UsuarioInfoDTO obtenerInformacionUsuario(String nroDocumento){
         return UsuarioMapper.convertirDTO(usuarioService.obtenerInformacionUsuario(nroDocumento));
+    }
+
+    public Usuario obtenerUsuarioPorCedula(String cedula){
+        return this.usuarioService.obtenerUsuarioPorCedula(cedula);
     }
 }

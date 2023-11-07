@@ -3,7 +3,7 @@ package co.udea.ssmu.api.services.usuario;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import co.udea.ssmu.api.model.jpa.dto.UsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioDTO;
 import co.udea.ssmu.api.model.jpa.mapper.UsuarioMapper;
 import co.udea.ssmu.api.model.jpa.model.TipoUsuario;
 import co.udea.ssmu.api.model.jpa.model.Usuario;
@@ -11,6 +11,8 @@ import co.udea.ssmu.api.model.jpa.repository.TipoUsuarioRepository;
 import co.udea.ssmu.api.model.jpa.repository.UsuarioRepository;
 import co.udea.ssmu.api.utils.exception.DataDuplicatedException;
 import co.udea.ssmu.api.utils.exception.DataNotFoundException;
+
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -45,12 +47,16 @@ public class UsuarioService {
     }
 
     public Usuario actualizarUsuario(UsuarioDTO usuarioDTO) {
-        Usuario usuario = usuarioRepository.findByEmail(usuarioDTO.getEmail());
-        if (usuario == null) {
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioDTO.getEmail());
+        if (usuario.isEmpty()) {
             throw new DataNotFoundException(USUARIO_NO_EXISTE);
         }
-        this.actualizarUsuario(usuario, usuarioDTO);
-        return this.usuarioRepository.save(usuario);
+        this.actualizarUsuario(usuario.get(), usuarioDTO);
+        return this.usuarioRepository.save(usuario.get());
+    }
+
+    public Usuario obtenerUsuarioPorCedula(String cedula){
+        return this.usuarioRepository.findByNroDocumento(cedula);
     }
 
 

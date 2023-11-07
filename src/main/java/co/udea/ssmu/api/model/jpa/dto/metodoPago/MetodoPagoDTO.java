@@ -1,4 +1,4 @@
-package co.udea.ssmu.api.model.jpa.dto;
+package co.udea.ssmu.api.model.jpa.dto.metodoPago;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MetodoPagoDTO {
+
     private long idMetodoPago;
     private String nombre;
     private String descripcion;

@@ -1,4 +1,4 @@
-package co.udea.ssmu.api.model.jpa.dto;
+package co.udea.ssmu.api.model.jpa.dto.usuario;
 
 import lombok.Getter;
 import lombok.Setter;
