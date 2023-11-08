@@ -1,7 +1,7 @@
 package co.udea.ssmu.api.model.jpa.mapper;
 
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioDTO;
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioInfoDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioInfoDTO;
 import co.udea.ssmu.api.model.jpa.model.MetodoPago;
 import co.udea.ssmu.api.model.jpa.model.MetodoPagoUsuario;
 import co.udea.ssmu.api.model.jpa.model.Usuario;

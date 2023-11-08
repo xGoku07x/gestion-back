@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioDTO;
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioInfoDTO;
-import co.udea.ssmu.api.services.metodosPago.MetodosPagoUsuarioFacade;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioInfoDTO;
+import co.udea.ssmu.api.services.metodospago.MetodosPagoUsuarioFacade;
 import co.udea.ssmu.api.utils.exception.GeneralRuntimeException;
 
 @RestController

@@ -1,4 +1,4 @@
-package co.udea.ssmu.api.services.metodosPago;
+package co.udea.ssmu.api.services.metodospago;
 
 import java.util.List;
 

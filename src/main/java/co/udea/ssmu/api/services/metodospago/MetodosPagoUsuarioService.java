@@ -1,12 +1,12 @@
-package co.udea.ssmu.api.services.metodosPago;
+package co.udea.ssmu.api.services.metodospago;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioDTO;
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioInfoDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioInfoDTO;
 import co.udea.ssmu.api.model.jpa.model.MetodoPago;
 import co.udea.ssmu.api.model.jpa.model.MetodoPagoUsuario;
 import co.udea.ssmu.api.model.jpa.model.Usuario;
@@ -37,19 +37,6 @@ public class MetodosPagoUsuarioService {
         MetodoPago metodoPago = this.metodoPagoFacade.obtenerMetodoPago(metodoPagoUsuarioDTO.getIdMetodoPago());
         MetodoPagoUsuario metodoPagoUsuario = MetodoPagoUsuarioMapper.convertirEntidad(metodoPagoUsuarioDTO, usuario,
                 metodoPago);
-        System.out.println("------------------------------------------------------monda-----------------");
-        System.out.println("------------------------------------------------------monda-----------------");
-        System.out.println("------------------------------------------------------monda-----------------");
-        System.out.println("------------------------------------------------------monda-----------------");
-        metodoPagoUsuario.setIdMetodoPagoUsuario(10);
-        System.out.println(metodoPagoUsuario.toString());
-        System.out.println(metodoPagoUsuario.getIdMetodoPago().getIdMetodoPago());
-        System.out.println(metodoPagoUsuario.getIdUsuario().getIdUsuario());
-        System.out.println(metodoPagoUsuario.getIdUsuario().getGrupo());
-
-        System.out.println("------------------------------------------------------fin monda------------------------------------------");
-        System.out.println("------------------------------------------------------fin monda------------------------------------------");
-        System.out.println("------------------------------------------------------fin monda------------------------------------------");
         this.metodoPagoUsuarioRepository.save(metodoPagoUsuario);
     }
 

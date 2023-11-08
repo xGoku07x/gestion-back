@@ -1,11 +1,8 @@
 package co.udea.ssmu.api.controller;
 
 import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioInfoDTO;
-import co.udea.ssmu.api.model.jpa.repository.UsuarioRepository;
 import co.udea.ssmu.api.model.jpa.dto.usuario.UsuarioDTO;
 import co.udea.ssmu.api.services.usuario.UsuarioFacade;
-import lombok.RequiredArgsConstructor;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/usuarios")
 public class UsuarioController {
 
-    private UsuarioFacade usuarioFacade;
+    private final UsuarioFacade usuarioFacade;
 
     public UsuarioController (UsuarioFacade usuarioFacade) {
         this.usuarioFacade = usuarioFacade;

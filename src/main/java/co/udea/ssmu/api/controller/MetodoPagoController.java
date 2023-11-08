@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.udea.ssmu.api.model.jpa.model.MetodoPago;
-import co.udea.ssmu.api.services.metodosPago.MetodoPagoFacade;
+import co.udea.ssmu.api.services.metodospago.MetodoPagoFacade;
 
 @RestController
 @RequestMapping("/metodos-pago")

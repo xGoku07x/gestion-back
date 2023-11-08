@@ -1,11 +1,11 @@
-package co.udea.ssmu.api.services.metodosPago;
+package co.udea.ssmu.api.services.metodospago;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioDTO;
-import co.udea.ssmu.api.model.jpa.dto.metodoPago.MetodoPagoUsuarioInfoDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioDTO;
+import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioInfoDTO;
 import jakarta.transaction.Transactional;
 
 @Service

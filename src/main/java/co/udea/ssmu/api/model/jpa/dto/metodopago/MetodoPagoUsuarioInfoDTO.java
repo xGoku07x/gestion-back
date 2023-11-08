@@ -1,4 +1,4 @@
-package co.udea.ssmu.api.model.jpa.dto.metodoPago;
+package co.udea.ssmu.api.model.jpa.dto.metodopago;
 
 import lombok.Builder;
 import lombok.Getter;
