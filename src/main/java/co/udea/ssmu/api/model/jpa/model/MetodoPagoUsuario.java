@@ -28,7 +28,7 @@ public class MetodoPagoUsuario {
     @Column(name="id_metodo_pago_usuario")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_metodo_pago_usuario_generator")
     @SequenceGenerator(name="seq_metodo_pago_usuario_generator", sequenceName = "SEQ_METODO_PAGO_USUARIO", allocationSize=1)
-    private long idMetodoPagoUsuario;
+    private Long idMetodoPagoUsuario;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")

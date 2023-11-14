@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tipo_usuario")
+@Table(name = "tipo_usuarios")
 public class TipoUsuario {
 
     @Id

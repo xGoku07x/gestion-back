@@ -5,14 +5,13 @@ import co.udea.ssmu.api.model.jpa.dto.metodopago.MetodoPagoUsuarioInfoDTO;
 import co.udea.ssmu.api.model.jpa.model.MetodoPago;
 import co.udea.ssmu.api.model.jpa.model.MetodoPagoUsuario;
 import co.udea.ssmu.api.model.jpa.model.Usuario;
+
 import org.apache.commons.lang3.StringUtils;
 
 public class MetodoPagoUsuarioMapper {
 
-    
     private MetodoPagoUsuarioMapper() {
     }
-
     public static MetodoPagoUsuario convertirEntidad(MetodoPagoUsuarioDTO metodoPagoUsuarioDTO, Usuario usuario, MetodoPago metodoPago){
 
         return MetodoPagoUsuario.builder()
@@ -27,10 +26,10 @@ public class MetodoPagoUsuarioMapper {
     }
 
 
-    public static MetodoPagoUsuarioInfoDTO convertirDTO(MetodoPagoUsuario metodoPagoUsuario){
-
+    public static MetodoPagoUsuarioInfoDTO convertirDTO(MetodoPagoUsuario metodoPagoUsuario, MetodoPago metodoPago){
         return MetodoPagoUsuarioInfoDTO.builder()
                 .idMetodoPagoUsuario(metodoPagoUsuario.getIdMetodoPagoUsuario())
+                .nombreMetodoPago(metodoPago.getNombre())
                 .nombreBanco(metodoPagoUsuario.getNombreBanco())
                 .nombreTarjeta(metodoPagoUsuario.getNombreTarjeta())
                 .numeroTarjeta(StringUtils.right(metodoPagoUsuario.getNumeroTarjeta(),4))

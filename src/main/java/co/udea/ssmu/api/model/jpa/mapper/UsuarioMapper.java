@@ -7,7 +7,6 @@ import co.udea.ssmu.api.utils.hasher.PasswordHash;
 
 public class UsuarioMapper {
 
-    //private final PasswordEncoder passwordEncoder;
     private UsuarioMapper() {
     }
 

@@ -10,7 +10,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
 @Setter
 @Entity
@@ -21,7 +20,7 @@ public class Grupo {
     @Column(name = "id_grupo")
     private long idGrupo;
 
-    @Column(name = "nombre", nullable=false)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
     @ManyToOne

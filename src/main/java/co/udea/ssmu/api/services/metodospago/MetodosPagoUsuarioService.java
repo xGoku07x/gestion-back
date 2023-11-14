@@ -12,11 +12,9 @@ import co.udea.ssmu.api.model.jpa.model.MetodoPagoUsuario;
 import co.udea.ssmu.api.model.jpa.model.Usuario;
 import co.udea.ssmu.api.model.jpa.repository.MetodoPagoUsuarioRepository;
 import co.udea.ssmu.api.services.usuario.UsuarioFacade;
-import jakarta.transaction.Transactional;
 import co.udea.ssmu.api.model.jpa.mapper.MetodoPagoUsuarioMapper;
 
 @Service
-@Transactional
 public class MetodosPagoUsuarioService {
 
     private MetodoPagoUsuarioRepository metodoPagoUsuarioRepository;
@@ -37,6 +35,7 @@ public class MetodosPagoUsuarioService {
         MetodoPago metodoPago = this.metodoPagoFacade.obtenerMetodoPago(metodoPagoUsuarioDTO.getIdMetodoPago());
         MetodoPagoUsuario metodoPagoUsuario = MetodoPagoUsuarioMapper.convertirEntidad(metodoPagoUsuarioDTO, usuario,
                 metodoPago);
+                System.out.println(metodoPagoUsuario);
         this.metodoPagoUsuarioRepository.save(metodoPagoUsuario);
     }
 
@@ -49,7 +48,8 @@ public class MetodosPagoUsuarioService {
         List<MetodoPagoUsuarioInfoDTO> metodosPagoUsuarioDTO = new ArrayList<>();
 
         for (MetodoPagoUsuario metodoPagoUsuario : metodosPagoUsuario) {
-            metodosPagoUsuarioDTO.add(MetodoPagoUsuarioMapper.convertirDTO(metodoPagoUsuario));
+            MetodoPago metodoPago = metodoPagoUsuario.getIdMetodoPago();
+            metodosPagoUsuarioDTO.add(MetodoPagoUsuarioMapper.convertirDTO(metodoPagoUsuario, metodoPago));
         }
 
         return metodosPagoUsuarioDTO;
