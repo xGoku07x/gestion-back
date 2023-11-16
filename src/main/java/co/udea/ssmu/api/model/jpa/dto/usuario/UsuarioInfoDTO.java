@@ -17,4 +17,5 @@ public class UsuarioInfoDTO {
     private String email;
     private String nroDocumento;
     private String nroServicios;
+    private String rol;
 }

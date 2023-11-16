@@ -42,7 +42,9 @@ public class UsuarioMapper {
                 .celular(usuario.getCelular())
                 .email(usuario.getEmail())
                 .nroDocumento(usuario.getNroDocumento())
-                .nroServicios(usuario.getNroServicios());
+                .nroServicios(usuario.getNroServicios())
+                .rol(usuario.getRol());
+
         cargarGrupo(usuario, usuarioInfoDTOBuilder);
         return usuarioInfoDTOBuilder.build();
 
