@@ -17,7 +17,6 @@ public class UsuarioMapper {
                 .celular(usuarioDTO.getCelular())
                 .email(usuarioDTO.getEmail())
                 .nroDocumento(usuarioDTO.getNroDocumento())
-                .nroServicios(usuarioDTO.getNroServicios())
                 .build();
     }
 

@@ -20,7 +20,6 @@ public class UsuarioMapperTest {
         usuarioDTO.setCelular("123456789");
         usuarioDTO.setEmail("john@example.com");
         usuarioDTO.setNroDocumento("123ABC");
-        usuarioDTO.setNroServicios("5");
 
         Usuario usuario = UsuarioMapper.convertirEntidad(usuarioDTO);
 
@@ -29,7 +28,6 @@ public class UsuarioMapperTest {
         assertEquals(usuarioDTO.getCelular(), usuario.getCelular());
         assertEquals(usuarioDTO.getEmail(), usuario.getEmail());
         assertEquals(usuarioDTO.getNroDocumento(), usuario.getNroDocumento());
-        assertEquals(usuarioDTO.getNroServicios(), usuario.getNroServicios());
     }
 
 

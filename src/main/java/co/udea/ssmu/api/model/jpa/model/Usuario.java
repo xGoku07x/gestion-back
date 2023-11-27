@@ -59,7 +59,7 @@ public class Usuario {
     private String celular;
 
     @Column(name="email", nullable = false)
-    @Email(message = "El email debe ser válido")
+    @Email()
     private String email;
     
     @Column(name="password", nullable = false)
