@@ -6,6 +6,7 @@ import co.udea.ssmu.api.services.usuario.UsuarioFacade;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,13 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Usuario", description = "El API de Usuario permite realizar operaciones CRUD sobre los usuarios del sistema.")
 @RestController
 @RequestMapping("/v1/usuarios")
+@RequiredArgsConstructor
 public class UsuarioController {
     
     private final UsuarioFacade usuarioFacade;
-
-    public UsuarioController (UsuarioFacade usuarioFacade) {
-        this.usuarioFacade = usuarioFacade;
-    }
 
     @Operation(summary = "Obtener información de un usuario", description = "Obtiene la información de un usuario dado su número de documento.")
     @GetMapping("/{nro_documento}")

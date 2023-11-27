@@ -2,6 +2,7 @@ package co.udea.ssmu.api.controller;
 
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,12 +22,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Tag(name = "MetodoPagoUsuario", description = "El API de MetodoPagoUsuario permite realizar operaciones CRUD sobre los metodos de pago de los usuarios del sistema.") 
 @RestController
 @RequestMapping("/metodos-pagos-usuario")
-public class MetodoPagoUsuarioController {
-    private MetodosPagoUsuarioFacade metodoPagoUsuarioFacade;
+@RequiredArgsConstructor
 
-    public MetodoPagoUsuarioController(MetodosPagoUsuarioFacade metodoPagoUsuarioFacade) {
-        this.metodoPagoUsuarioFacade = metodoPagoUsuarioFacade;
-    }
+public class MetodoPagoUsuarioController {
+
+    private final MetodosPagoUsuarioFacade metodoPagoUsuarioFacade;
 
     @Operation(summary = "Crear un metodo de pago de un usuario", description = "Crea un metodo de pago de un usuario en el sistema.")
     @PostMapping("/")
@@ -36,7 +36,6 @@ public class MetodoPagoUsuarioController {
             return ResponseEntity.ok("Se agregó el método de pago correctamente.");
         } catch (GeneralRuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
-            
         }
     }
 

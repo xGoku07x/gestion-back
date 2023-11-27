@@ -21,7 +21,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Entity
 @Data
-@Table(name = "metodo_pago_usuario")
+@Table(name = "m3_metodo_pago_usuario")
 public class MetodoPagoUsuario {
 
     @Id
