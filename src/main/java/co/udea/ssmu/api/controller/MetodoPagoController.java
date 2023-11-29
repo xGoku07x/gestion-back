@@ -15,7 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Metodos de pago", description = "El API de MetodoPago permite realizar operaciones CRUD sobre los metodos de pago del sistema.")
 @RestController
-@RequestMapping("/metodos-pago")
+@RequestMapping("/v1/metodos-pago")
 @RequiredArgsConstructor
 public class MetodoPagoController {
     
